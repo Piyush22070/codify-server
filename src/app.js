@@ -23,4 +23,8 @@ app.use("/",questionRouter)
 import solveRouter from './routes/solve.route.js'
 app.use("/",solveRouter)
 
+// register user Router 
+import userRouter from './routes/user.route.js'
+app.use("/",userRouter)
+
 export default app
