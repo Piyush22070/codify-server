@@ -49,7 +49,7 @@ export const questions = [
     {
         id: 3,
         name: "Palindrome Number",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 9200,
         dislike: 230,
         description: "Given an integer x, return true if x is a palindrome integer.",
@@ -72,7 +72,7 @@ export const questions = [
     {
         id: 4,
         name: "Roman to Integer",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 6200,
         dislike: 100,
         description: "Given a roman numeral, convert it to an integer.",
@@ -141,7 +141,7 @@ export const questions = [
     {
         id: 7,
         name: "Merge Two Sorted Lists",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 7600,
         dislike: 200,
         description: "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
@@ -233,7 +233,7 @@ export const questions = [
     {
         id: 11,
         name: "Search Insert Position",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 7800,
         dislike: 180,
         description: "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.",
@@ -302,7 +302,7 @@ export const questions = [
     {
         id: 14,
         name: "Length of Last Word",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 6700,
         dislike: 300,
         description: "Given a string s consisting of some words separated by some number of spaces, return the length of the last word in the string.",
@@ -348,7 +348,7 @@ export const questions = [
     {
         id: 16,
         name: "Add Binary",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 2900,
         dislike: 123,
         description: "Given two binary strings a and b, return their sum as a binary string.",
@@ -463,7 +463,7 @@ export const questions = [
     {
         id: 21,
         name: "Valid Palindrome",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 7600,
         dislike: 300,
         description: "Given a string s, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.",
@@ -831,7 +831,7 @@ export const questions = [
     {
         id: 37,
         name: "Intersection of Two Arrays II",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 6500,
         dislike: 200,
         description: "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.",
@@ -992,7 +992,7 @@ export const questions = [
     {
         id: 44,
         name: "Excel Sheet Column Number",
-        difficulty: "Easy",
+        difficulty: "Medium",
         like: 6700,
         dislike: 150,
         description: "Given a column title as appear in an Excel sheet, return its corresponding column number.",

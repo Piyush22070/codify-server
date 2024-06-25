@@ -27,4 +27,9 @@ app.use("/",solveRouter)
 import userRouter from './routes/user.route.js'
 app.use("/",userRouter)
 
+import problemRouter from './routes/problem.route.js'
+app.use("/question/",problemRouter)
+
+
+
 export default app
