@@ -1,465 +1,506 @@
 
 export const questions = [
-    {
-        id: 1,
-        name: "Two Sum",
-        difficulty: "Easy",
-        like: 12000,
-        dislike: 500,
-        description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
-        example1: {
-            Input: "nums = [2,7,11,15], target = 9",
-            Output: "[0,1]",
-            Explanation: "Because nums[0] + nums[1] == 9, we return [0, 1]."
+    
+        {
+            id: 1,
+            name: "Two Sum",
+            difficulty: "Easy",
+            like: 12000,
+            dislike: 500,
+            description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+            example1: {
+                Input: "nums = [2,7,11,15], target = 9",
+                Output: "[0,1]",
+                Explanation: "Because nums[0] + nums[1] == 9, we return [0, 1]."
+            },
+            example2: {
+                Input: "nums = [3,2,4], target = 6",
+                Output: "[1,2]",
+                Explanation: "Because nums[1] + nums[2] == 6, we return [1, 2]."
+            },
+            Constraints: "2 <= nums.length <= 10^4\n-10^9 <= nums[i] <= 10^9\n-10^9 <= target <= 10^9\nOnly one valid answer exists.",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "2,7,11,15\n9",
+            sampleOutput: "0 1"
         },
-        example2: {
-            Input: "nums = [3,2,4], target = 6",
-            Output: "[1,2]",
-            Explanation: "Because nums[1] + nums[2] == 6, we return [1, 2]."
+        {
+            id: 2,
+            name: "Reverse Integer",
+            difficulty: "Easy",
+            like: 8500,
+            dislike: 120,
+            description: "Given a signed 32-bit integer x, return x with its digits reversed.",
+            example1: {
+                Input: "x = 123",
+                Output: "321",
+                Explanation: "The reversed integer is 321."
+            },
+            example2: {
+                Input: "x = -123",
+                Output: "-321",
+                Explanation: "The reversed integer is -321. Note that the reversed integer should be in the range [-2^31, 2^31 - 1]. If it is not a valid reversed integer, return 0."
+            },
+            Constraints: "-2^31 <= x <= 2^31 - 1",
+            timeComplexity: "O(log(x))",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "123",
+            sampleOutput: "321"
         },
-        Constraints: "2 <= nums.length <= 10^4\n-10^9 <= nums[i] <= 10^9\n-10^9 <= target <= 10^9\nOnly one valid answer exists.",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 2,
-        name: "Reverse Integer",
-        difficulty: "Easy",
-        like: 8500,
-        dislike: 120,
-        description: "Given a signed 32-bit integer x, return x with its digits reversed.",
-        example1: {
-            Input: "x = 123",
-            Output: "321",
-            Explanation: "The reversed integer is 321."
+        {
+            id: 3,
+            name: "Palindrome Number",
+            difficulty: "Medium",
+            like: 9200,
+            dislike: 230,
+            description: "Given an integer x, return true if x is a palindrome integer.",
+            example1: {
+                Input: "x = 121",
+                Output: "true",
+                Explanation: "121 is a palindrome."
+            },
+            example2: {
+                Input: "x = -121",
+                Output: "false",
+                Explanation: "From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome."
+            },
+            Constraints: "-2^31 <= x <= 2^31 - 1",
+            timeComplexity: "O(log(x))",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "121",
+            sampleOutput: "true"
         },
-        example2: {
-            Input: "x = -123",
-            Output: "-321",
-            Explanation: "The reversed integer is -321. Note that the reversed integer should be in the range [-2^31, 2^31 - 1]. If it is not a valid reversed integer, return 0."
+        {
+            id: 4,
+            name: "Roman to Integer",
+            difficulty: "Medium",
+            like: 6200,
+            dislike: 100,
+            description: "Given a roman numeral, convert it to an integer.",
+            example1: {
+                Input: "s = \"III\"",
+                Output: "3",
+                Explanation: "Roman numeral III is represented as 3 in integer."
+            },
+            example2: {
+                Input: "s = \"IV\"",
+                Output: "4",
+                Explanation: "Roman numeral IV is represented as 4 in integer."
+            },
+            Constraints: "1 <= s.length <= 15\ns contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "III",
+            sampleOutput: "3"
         },
-        Constraints: "-2^31 <= x <= 2^31 - 1",
-        timeComplexity: "O(log(x))",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 3,
-        name: "Palindrome Number",
-        difficulty: "Medium",
-        like: 9200,
-        dislike: 230,
-        description: "Given an integer x, return true if x is a palindrome integer.",
-        example1: {
-            Input: "x = 121",
-            Output: "true",
-            Explanation: "121 is a palindrome."
+        {
+            id: 5,
+            name: "Longest Common Prefix",
+            difficulty: "Easy",
+            like: 10200,
+            dislike: 400,
+            description: "Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string \"\".",
+            example1: {
+                Input: "strs = [\"flower\",\"flow\",\"flight\"]",
+                Output: "\"fl\"",
+                Explanation: "The longest common prefix is \"fl\"."
+            },
+            example2: {
+                Input: "strs = [\"dog\",\"racecar\",\"car\"]",
+                Output: "\"\"",
+                Explanation: "There is no common prefix among the input strings."
+            },
+            Constraints: "0 <= strs.length <= 200\n0 <= strs[i].length <= 200\nstrs[i] consists of only lower-case English letters.",
+            timeComplexity: "O(n * m)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "flower\nflow\nflight",
+            sampleOutput: "fl"
         },
-        example2: {
-            Input: "x = -121",
-            Output: "false",
-            Explanation: "From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome."
+        {
+            id: 6,
+            name: "Valid Parentheses",
+            difficulty: "Easy",
+            like: 9800,
+            dislike: 300,
+            description: "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+            example1: {
+                Input: "s = \"()\"",
+                Output: "true",
+                Explanation: "The input string is valid because brackets are balanced."
+            },
+            example2: {
+                Input: "s = \"([)]\"",
+                Output: "false",
+                Explanation: "The input string is not valid because brackets are not balanced."
+            },
+            Constraints: "1 <= s.length <= 10^4\ns consists of parentheses only '()[]{}'.",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "()",
+            sampleOutput: "true"
         },
-        Constraints: "-2^31 <= x <= 2^31 - 1",
-        timeComplexity: "O(log(x))",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 4,
-        name: "Roman to Integer",
-        difficulty: "Medium",
-        like: 6200,
-        dislike: 100,
-        description: "Given a roman numeral, convert it to an integer.",
-        example1: {
-            Input: "s = \"III\"",
-            Output: "3",
-            Explanation: "Roman numeral III is represented as 3 in integer."
+        {
+            id: 7,
+            name: "Merge Two Sorted Lists",
+            difficulty: "Medium",
+            like: 7600,
+            dislike: 200,
+            description: "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
+            example1: {
+                Input: "l1 = [1,2,4], l2 = [1,3,4]",
+                Output: "[1,1,2,3,4,4]",
+                Explanation: "Merging the sorted lists l1 and l2 yields [1,1,2,3,4,4]."
+            },
+            example2: {
+                Input: "l1 = [], l2 = []",
+                Output: "[]",
+                Explanation: "Merging an empty list with another empty list results in an empty list."
+            },
+            Constraints: "The number of nodes in both lists is in the range [0, 50].\n-100 <= Node.val <= 100\nBoth l1 and l2 are sorted in non-decreasing order.",
+            timeComplexity: "O(n + m)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "1,2,4\n1,3,4",
+            sampleOutput: "1,1,2,3,4,4"
         },
-        example2: {
-            Input: "s = \"IV\"",
-            Output: "4",
-            Explanation: "Roman numeral IV is represented as 4 in integer."
+        {
+            id: 8,
+            name: "Remove Duplicates from Sorted Array",
+            difficulty: "Easy",
+            like: 9300,
+            dislike: 400,
+            description: "Given a sorted array nums, remove the duplicates in-place such that each element appears only once and returns the new length.",
+            example1: {
+                Input: "nums = [1,1,2]",
+                Output: "2",
+                Explanation: "After removing the duplicates, nums has elements [1,2] and its length is 2."
+            },
+            example2: {
+                Input: "nums = [0,0,1,1,1,2,2,3,3,4]",
+                Output: "5",
+                Explanation: "After removing the duplicates, nums has elements [0,1,2,3,4] and its length is 5."
+            },
+            Constraints: "0 <= nums.length <= 3 * 10^4\n-10^4 <= nums[i] <= 10^4\nnums is sorted in ascending order.",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "1,1,2",
+            sampleOutput: "2"
         },
-        Constraints: "1 <= s.length <= 15\ns contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 5,
-        name: "Longest Common Prefix",
-        difficulty: "Easy",
-        like: 10200,
-        dislike: 400,
-        description: "Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string \"\".",
-        example1: {
-            Input: "strs = [\"flower\",\"flow\",\"flight\"]",
-            Output: "\"fl\"",
-            Explanation: "The longest common prefix is \"fl\"."
+        {
+            id: 9,
+            name: "Remove Element",
+            difficulty: "Easy",
+            like: 8500,
+            dislike: 300,
+            description: "Given an integer array nums and an integer val, remove all occurrences of val in nums in-place and return the new length.",
+            example1: {
+                Input: "nums = [3,2,2,3], val = 3",
+                Output: "2",
+                Explanation: "After removing all occurrences of 3 in nums, nums will have the elements [2,2] and its length is 2."
+            },
+            example2: {
+                Input: "nums = [0,1,2,2,3,0,4,2], val = 2",
+                Output: "5",
+                Explanation: "After removing all occurrences of 2 in nums, nums will have the elements [0,1,3,0,4] and its length is 5."
+            },
+            Constraints: "0 <= nums.length <= 100\n0 <= nums[i] <= 50\n0 <= val <= 100",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "3,2,2,3\n3",
+            sampleOutput: "2"
         },
-        example2: {
-            Input: "strs = [\"dog\",\"racecar\",\"car\"]",
-            Output: "\"\"",
-            Explanation: "There is no common prefix among the input strings."
+        {
+            id: 10,
+            name: "Implement strStr()",
+            difficulty: "Easy",
+            like: 8700,
+            dislike: 200,
+            description: "Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.",
+            example1: {
+                Input: "haystack = \"hello\", needle = \"ll\"",
+                Output: "2",
+                Explanation: "The first occurrence of \"ll\" is at index 2 in the string \"hello\"."
+            },
+            example2: {
+                Input: "haystack = \"aaaaa\", needle = \"bba\"",
+                Output: "-1",
+                Explanation: "needle \"bba\" is not part of the haystack \"aaaaa\"."
+            },
+            Constraints: "0 <= haystack.length, needle.length <= 5 * 10^4\nhaystack and needle consist of only lower-case English characters.",
+            timeComplexity: "O(n * m)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "hello\nll",
+            sampleOutput: "2"
         },
-        Constraints: "0 <= strs.length <= 200\n0 <= strs[i].length <= 200\nstrs[i] consists of only lower-case English letters.",
-        timeComplexity: "O(n * m)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 6,
-        name: "Valid Parentheses",
-        difficulty: "Easy",
-        like: 9800,
-        dislike: 300,
-        description: "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
-        example1: {
-            Input: "s = \"()\"",
-            Output: "true",
-            Explanation: "The input string is valid because brackets are balanced."
+        {
+            id: 11,
+            name: "Search Insert Position",
+            difficulty: "Easy",
+            like: 9100,
+            dislike: 500,
+            description: "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.",
+            example1: {
+                Input: "nums = [1,3,5,6], target = 5",
+                Output: "2",
+                Explanation: "The target value 5 is found at index 2 in the array."
+            },
+            example2: {
+                Input: "nums = [1,3,5,6], target = 2",
+                Output: "1",
+                Explanation: "The target value 2 is not found, so it would be inserted at index 1."
+            },
+            Constraints: "1 <= nums.length <= 10^4\n-10^4 <= nums[i] <= 10^4\nnums contains distinct values sorted in ascending order.\n-10^4 <= target <= 10^4",
+            timeComplexity: "O(log n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "1,3,5,6\n5",
+            sampleOutput: "2"
         },
-        example2: {
-            Input: "s = \"([)]\"",
-            Output: "false",
-            Explanation: "The input string is not valid because brackets are not balanced."
+        {
+            id: 12,
+            name: "Count and Say",
+            difficulty: "Easy",
+            like: 8900,
+            dislike: 400,
+            description: "The count-and-say sequence is a sequence of digit strings defined by the recursive formula:\n- countAndSay(1) = \"1\"\n- countAndSay(n) is the way you would \"say\" the digit string from countAndSay(n-1), which is then converted into a different digit string.",
+            example1: {
+                Input: "n = 1",
+                Output: "\"1\"",
+                Explanation: "The count-and-say sequence starts with \"1\"."
+            },
+            example2: {
+                Input: "n = 4",
+                Output: "\"1211\"",
+                Explanation: "The count-and-say sequence is \"1\" -> \"11\" -> \"21\" -> \"1211\"."
+            },
+            Constraints: "1 <= n <= 30",
+            timeComplexity: "O(2^n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "1",
+            sampleOutput: "1"
         },
-        Constraints: "1 <= s.length <= 10^4\ns consists of parentheses only '()[]{}'.",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 7,
-        name: "Merge Two Sorted Lists",
-        difficulty: "Medium",
-        like: 7600,
-        dislike: 200,
-        description: "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
-        example1: {
-            Input: "l1 = [1,2,4], l2 = [1,3,4]",
-            Output: "[1,1,2,3,4,4]",
-            Explanation: "Merging the sorted lists l1 and l2 yields [1,1,2,3,4,4]."
+        {
+            id: 13,
+            name: "Maximum Subarray",
+            difficulty: "Easy",
+            like: 9800,
+            dislike: 300,
+            description: "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
+            example1: {
+                Input: "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+                Output: "6",
+                Explanation: "The contiguous subarray [4,-1,2,1] has the largest sum = 6."
+            },
+            example2: {
+                Input: "nums = [1]",
+                Output: "1",
+                Explanation: "The contiguous subarray [1] has the largest sum = 1."
+            },
+            Constraints: "1 <= nums.length <= 3 * 10^4\n-10^5 <= nums[i] <= 10^5",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "-2,1,-3,4,-1,2,1,-5,4",
+            sampleOutput: "6"
         },
-        example2: {
-            Input: "l1 = [], l2 = []",
-            Output: "[]",
-            Explanation: "Merging an empty list with another empty list results in an empty list."
+        {
+            id: 14,
+            name: "Length of Last Word",
+            difficulty: "Easy",
+            like: 9400,
+            dislike: 100,
+            description: "Given a string s consisting of some words separated by some number of spaces, return the length of the last word in the string.",
+            example1: {
+                Input: "s = \"Hello World\"",
+                Output: "5",
+                Explanation: "The last word is \"World\" with length 5."
+            },
+            example2: {
+                Input: "s = \"   fly me   to   the moon  \"",
+                Output: "4",
+                Explanation: "The last word is \"moon\" with length 4."
+            },
+            Constraints: "1 <= s.length <= 10^4\ns consists of upper-case and lower-case English letters, digits, and spaces ' '.\nThere is at least one word in s.",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "Hello World",
+            sampleOutput: "5"
         },
-        Constraints: "The number of nodes in both lists is in the range [0, 50].\n-100 <= Node.val <= 100\nBoth l1 and l2 are sorted in non-decreasing order.",
-        timeComplexity: "O(n + m)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 8,
-        name: "Remove Duplicates from Sorted Array",
-        difficulty: "Easy",
-        like: 9300,
-        dislike: 400,
-        description: "Given a sorted array nums, remove the duplicates in-place such that each element appears only once and returns the new length.",
-        example1: {
-            Input: "nums = [1,1,2]",
-            Output: "2",
-            Explanation: "After removing the duplicates, nums has elements [1,2] and its length is 2."
+        {
+            id: 15,
+            name: "Plus One",
+            difficulty: "Easy",
+            like: 9100,
+            dislike: 200,
+            description: "Given a non-empty array of decimal digits representing a non-negative integer, increment one to the integer.",
+            example1: {
+                Input: "digits = [1,2,3]",
+                Output: "[1,2,4]",
+                Explanation: "The array represents the integer 123 + 1 = 124."
+            },
+            example2: {
+                Input: "digits = [4,3,2,1]",
+                Output: "[4,3,2,2]",
+                Explanation: "The array represents the integer 4321 + 1 = 4322."
+            },
+            Constraints: "1 <= digits.length <= 100\n0 <= digits[i] <= 9",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "1,2,3",
+            sampleOutput: "1,2,4"
         },
-        example2: {
-            Input: "nums = [0,0,1,1,1,2,2,3,3,4]",
-            Output: "5",
-            Explanation: "After removing the duplicates, nums has elements [0,1,2,3,4] and its length is 5."
+        {
+            id: 16,
+            name: "Add Binary",
+            difficulty: "Easy",
+            like: 8600,
+            dislike: 300,
+            description: "Given two binary strings a and b, return their sum as a binary string.",
+            example1: {
+                Input: "a = \"11\", b = \"1\"",
+                Output: "\"100\"",
+                Explanation: "The sum of 11 and 1 is 100 in binary."
+            },
+            example2: {
+                Input: "a = \"1010\", b = \"1011\"",
+                Output: "\"10101\"",
+                Explanation: "The sum of 1010 and 1011 is 10101 in binary."
+            },
+            Constraints: "1 <= a.length, b.length <= 10^4\na and b consist only of '0' or '1' characters.\nEach string does not contain leading zeros except for the zero itself.",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "11\n1",
+            sampleOutput: "100"
         },
-        Constraints: "0 <= nums.length <= 3 * 10^4\n-10^4 <= nums[i] <= 10^4\nnums is sorted in ascending order.",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 9,
-        name: "Remove Element",
-        difficulty: "Easy",
-        like: 8500,
-        dislike: 300,
-        description: "Given an integer array nums and an integer val, remove all occurrences of val in nums in-place and return the new length.",
-        example1: {
-            Input: "nums = [3,2,2,3], val = 3",
-            Output: "2",
-            Explanation: "After removing the occurrences of value 3, nums has elements [2,2] and its length is 2."
+        {
+            id: 17,
+            name: "Sqrt(x)",
+            difficulty: "Easy",
+            like: 9700,
+            dislike: 200,
+            description: "Given a non-negative integer x, compute and return the square root of x.",
+            example1: {
+                Input: "x = 4",
+                Output: "2",
+                Explanation: "The square root of 4 is 2."
+            },
+            example2: {
+                Input: "x = 8",
+                Output: "2",
+                Explanation: "The square root of 8 is 2.82842..., but the integer part is 2."
+            },
+            Constraints: "0 <= x <= 2^31 - 1",
+            timeComplexity: "O(log(x))",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "4",
+            sampleOutput: "2"
         },
-        example2: {
-            Input: "nums = [0,1,2,2,3,0,4,2], val = 2",
-            Output: "5",
-            Explanation: "After removing the occurrences of value 2, nums has elements [0,1,3,0,4] and its length is 5."
+        {
+            id: 18,
+            name: "Climbing Stairs",
+            difficulty: "Easy",
+            like: 9400,
+            dislike: 300,
+            description: "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+            example1: {
+                Input: "n = 2",
+                Output: "2",
+                Explanation: "There are two ways to climb to the top:\n1. 1 step + 1 step\n2. 2 steps"
+            },
+            example2: {
+                Input: "n = 3",
+                Output: "3",
+                Explanation: "There are three ways to climb to the top:\n1. 1 step + 1 step + 1 step\n2. 1 step + 2 steps\n3. 2 steps + 1 step"
+            },
+            Constraints: "1 <= n <= 45",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "2",
+            sampleOutput: "2"
         },
-        Constraints: "0 <= nums.length <= 100\n0 <= nums[i] <= 50\n0 <= val <= 100",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 10,
-        name: "Implement strStr()",
-        difficulty: "Easy",
-        like: 7200,
-        dislike: 150,
-        description: "Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.",
-        example1: {
-            Input: "haystack = \"hello\", needle = \"ll\"",
-            Output: "2",
-            Explanation: "The first occurrence of needle \"ll\" in haystack \"hello\" is at index 2."
+        {
+            id: 19,
+            name: "Merge Sorted Array",
+            difficulty: "Easy",
+            like: 8800,
+            dislike: 200,
+            description: "You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Merge nums1 and nums2 into a single array sorted in non-decreasing order.",
+            example1: {
+                Input: "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+                Output: "[1,2,2,3,5,6]",
+                Explanation: "Merging nums1 and nums2 by considering the non-zero elements from the end results in [1,2,2,3,5,6]."
+            },
+            example2: {
+                Input: "nums1 = [1], m = 1, nums2 = [], n = 0",
+                Output: "[1]",
+                Explanation: "Merging an empty nums2 with nums1 results in [1]."
+            },
+            Constraints: "nums1.length == m + n\nnums2.length == n\n0 <= m, n <= 200\n1 <= m + n <= 200\n-10^9 <= nums1[i], nums2[i] <= 10^9",
+            timeComplexity: "O(m + n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "1,2,3,0,0,0\n3\n2,5,6\n3",
+            sampleOutput: "1,2,2,3,5,6"
         },
-        example2: {
-            Input: "haystack = \"aaaaa\", needle = \"bba\"",
-            Output: "-1",
-            Explanation: "Needle \"bba\" is not part of haystack \"aaaaa\"."
+        {
+            id: 20,
+            name: "Same Tree",
+            difficulty: "Easy",
+            like: 9300,
+            dislike: 400,
+            description: "Given the roots of two binary trees p and q, write a function to check if they are the same or not. Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.",
+            example1: {
+                Input: "p = [1,2,3], q = [1,2,3]",
+                Output: "true",
+                Explanation: "The two binary trees have the same structure and every identical position has the same value 1."
+            },
+            example2: {
+                Input: "p = [1,2], q = [1,null,2]",
+                Output: "false",
+                Explanation: "The two binary trees have different structures."
+            },
+            Constraints: "The number of nodes in both trees is in the range [0, 100].\n-10^4 <= Node.val <= 10^4",
+            timeComplexity: "O(n)",
+            Accepted: 13499686,
+            Submissions: 25531603,
+            favourite: false,
+            sampleInput: "1,2,3\n1,2,3",
+            sampleOutput: "true"
         },
-        Constraints: "0 <= haystack.length, needle.length <= 5 * 10^4\nhaystack and needle consist of lowercase English letters.",
-        timeComplexity: "O(n * m)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 11,
-        name: "Search Insert Position",
-        difficulty: "Medium",
-        like: 7800,
-        dislike: 180,
-        description: "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.",
-        example1: {
-            Input: "nums = [1,3,5,6], target = 5",
-            Output: "2",
-            Explanation: "The target value 5 is found at index 2."
-        },
-        example2: {
-            Input: "nums = [1,3,5,6], target = 2",
-            Output: "1",
-            Explanation: "The target value 2 is not found but it would be inserted at index 1."
-        },
-        Constraints: "1 <= nums.length <= 10^4\n-10^4 <= nums[i] <= 10^4\nnums contains distinct values sorted in ascending order.",
-        timeComplexity: "O(log(n))",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 12,
-        name: "Count and Say",
-        difficulty: "Easy",
-        like: 6300,
-        dislike: 200,
-        description: "The count-and-say sequence is a sequence of digit strings defined by the recursive formula.\n    - countAndSay(1) = \"1\"\n    - countAndSay(n) is the way you would \"say\" the digit string from countAndSay(n-1), which is then converted into a different digit string.",
-        example1: {
-            Input: "n = 1",
-            Output: "\"1\"",
-            Explanation: "The sequence starts with \"1\"."
-        },
-        example2: {
-            Input: "n = 4",
-            Output: "\"1211\"",
-            Explanation: "To generate the sequence, we read the previous string \"111221\". Then \"1\" is read as \"one 1\" or \"11\". \"2\" is read as \"two 1s\" or \"21\". \"1\" is read as \"one 2, then one 1\" or \"1211\"."
-        },
-        Constraints: "1 <= n <= 30",
-        timeComplexity: "O(2^n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 13,
-        name: "Maximum Subarray",
-        difficulty: "Easy",
-        like: 9200,
-        dislike: 350,
-        description: "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
-        example1: {
-            Input: "nums = [-2,1,-3,4,-1,2,1,-5,4]",
-            Output: "6",
-            Explanation: "The contiguous subarray [4,-1,2,1] has the largest sum = 6."
-        },
-        example2: {
-            Input: "nums = [1]",
-            Output: "1",
-            Explanation: "The contiguous subarray [1] has the largest sum = 1."
-        },
-        Constraints: "1 <= nums.length <= 2 * 10^4\n-10^5 <= nums[i] <= 10^5",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 14,
-        name: "Length of Last Word",
-        difficulty: "Medium",
-        like: 6700,
-        dislike: 300,
-        description: "Given a string s consisting of some words separated by some number of spaces, return the length of the last word in the string.",
-        example1: {
-            Input: "s = \"Hello World\"",
-            Output: "5",
-            Explanation: "The last word \"World\" has a length of 5."
-        },
-        example2: {
-            Input: "s = \"   fly me   to   the moon  \"",
-            Output: "4",
-            Explanation: "The last word \"moon\" has a length of 4."
-        },
-        Constraints: "1 <= s.length <= 10^4\ns consists of only English letters and spaces ' '.",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 15,
-        name: "Plus One",
-        difficulty: "Easy",
-        like: 7200,
-        dislike: 150,
-        description: "Given a non-empty array of decimal digits representing a non-negative integer, increment one to the integer and return the result as an array of decimal digits. The digits are stored so that the most significant digit is at the head of the list, and each element in the array contains a single digit.",
-        example1: {
-            Input: "digits = [1,2,3]",
-            Output: "[1,2,4]",
-            Explanation: "The array represents the integer 123. Incrementing by one gives 124."
-        },
-        example2: {
-            Input: "digits = [4,3,2,1]",
-            Output: "[4,3,2,2]",
-            Explanation: "The array represents the integer 4321. Incrementing by one gives 4322."
-        },
-        Constraints: "1 <= digits.length <= 100\n0 <= digits[i] <= 9",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 16,
-        name: "Add Binary",
-        difficulty: "Medium",
-        like: 2900,
-        dislike: 123,
-        description: "Given two binary strings a and b, return their sum as a binary string.",
-        example1: {
-            Input: "a = \"11\", b = \"1\"",
-            Output: "\"100\"",
-            Explanation: "The binary sum of \"11\" and \"1\" is \"100\"."
-        },
-        example2: {
-            Input: "a = \"1010\", b = \"1011\"",
-            Output: "\"10101\"",
-            Explanation: "The binary sum of \"1010\" and \"1011\" is \"10101\"."
-        },
-        Constraints: "1 <= a.length, b.length <= 10^4\na and b consist only of '0' or '1' characters.",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 17,
-        name: "Sqrt(x)",
-        difficulty: "Easy",
-        like: 2100,
-        dislike: 123,
-        description: "Given a non-negative integer x, compute and return the square root of x. Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.",
-        example1: {
-            Input: "4",
-            Output: "2",
-            Explanation: "The square root of 4 is 2."
-        },
-        example2: {
-            Input: "8",
-            Output: "2",
-            Explanation: "The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned."
-        },
-        Constraints: "0 <= x <= 2^31 - 1",
-        timeComplexity: "O(log(x))",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 18,
-        name: "Climbing Stairs",
-        difficulty: "Easy",
-        like: 4300,
-        dislike: 234,
-        description: "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
-        example1: {
-            Input: "2",
-            Output: "2",
-            Explanation: "There are two ways to climb to the top: 1 step + 1 step or 2 steps."
-        },
-        example2: {
-            Input: "3",
-            Output: "3",
-            Explanation: "There are three ways to climb to the top: 1 step + 1 step + 1 step, 1 step + 2 steps, or 2 steps + 1 step."
-        },
-        Constraints: "1 <= n <= 45",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 19,
-        name: "Remove Duplicates from Sorted List",
-        difficulty: "Easy",
-        like: 6400,
-        dislike: 250,
-        description: "Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.",
-        example1: {
-            Input: "head = [1,1,2]",
-            Output: "[1,2]",
-            Explanation: "The linked list with duplicates removed and sorted is [1,2]."
-        },
-        example2: {
-            Input: "head = [1,1,2,3,3]",
-            Output: "[1,2,3]",
-            Explanation: "The linked list with duplicates removed and sorted is [1,2,3]."
-        },
-        Constraints: "The number of nodes in the list is in the range [0, 300].\n-100 <= Node.val <= 100\nThe list is guaranteed to be sorted in ascending order.",
-        timeComplexity: "O(n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
-    {
-        id: 20,
-        name: "Merge Sorted Array",
-        difficulty: "Easy",
-        like: 5800,
-        dislike: 100,
-        description: "You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Merge nums1 and nums2 into a single array sorted in non-decreasing order.",
-        example1: {
-            Input: "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
-            Output: "[1,2,2,3,5,6]",
-            Explanation: "Merged nums1 and nums2 is [1,2,2,3,5,6]. The elements are sorted in non-decreasing order."
-        },
-        example2: {
-            Input: "nums1 = [1], m = 1, nums2 = [], n = 0",
-            Output: "[1]",
-            Explanation: "Merged nums1 and nums2 is [1]. The elements are already sorted in non-decreasing order."
-        },
-        Constraints: "nums1.length == m + n\nnums2.length == n\n0 <= m, n <= 200\n1 <= m + n <= 200\n-10^9 <= nums1[i], nums2[i] <= 10^9",
-        timeComplexity: "O(m + n)",
-        Accepted: 13499686,
-        Submissions: 25531603,
-        favourite: false
-    },
     {
         id: 21,
         name: "Valid Palindrome",

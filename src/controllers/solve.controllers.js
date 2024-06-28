@@ -4,16 +4,23 @@ import { asyncHandlers } from "../utils/asyncHandler.utils.js";
 
 
 const executeCode = (fileName, command, res) => {
-    exec(command, (error, stdout, stderr) => {
-        // Delete the temporary file
-         fs.unlinkSync(fileName);
-        if (error) {
-            console.error(`exec error: ${error}`);
-            return res.status(500).json({ error: 'Error executing code', details: stderr });
-        }
-        res.json({ output: stdout });
-    });
+    try {
+        exec(command, (error, stdout, stderr) => {
+            fs.unlinkSync(fileName);
+            if (error) {
+                return res.status(500).json({ error: error.message, stderr });
+            }
+            res.json({ output: stdout, stderr });
+        });
+    } catch (err) {
+        res.status(500).json({ error: 'Error executing code' });
+    }
 };
+
+// to handel the restart of server and make them start again
+process.on('uncaughtException', (err) => {});
+process.on('unhandledRejection', (reason, promise) => {});
+
 
 const solve = asyncHandlers( async (req, res)=>{
 
@@ -37,11 +44,11 @@ const solve = asyncHandlers( async (req, res)=>{
             fs.unlinkSync(execName); 
             break;
         case 'java':
-            fileName = 'TempCode.java';
+            fileName = 'Main.java';
             fs.writeFileSync(fileName, code.join('\n'));
-            command = `javac ${fileName} && java TempCode`;
+            command = `javac ${fileName} && java Main`;
             executeCode(fileName, command, res);
-            fs.unlinkSync('TempCode.class'); 
+            fs.unlinkSync('Main.class'); 
             break;
         case 'js':
             fileName = 'tempCode.js';
