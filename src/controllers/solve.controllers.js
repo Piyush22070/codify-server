@@ -1,12 +1,13 @@
-import fs from 'fs'
+import fs from 'fs';
 import { exec } from 'child_process';
-import { asyncHandlers } from "../utils/asyncHandler.utils.js";
+import { asyncHandlers } from '../utils/asyncHandler.utils.js';
+import { questions } from './demoData.js';
 
-
-const executeCode = (fileName, command, res) => {
+const executeCode = (fileName, command, inputFileName, res) => {
     try {
         exec(command, (error, stdout, stderr) => {
             fs.unlinkSync(fileName);
+            if (inputFileName) fs.unlinkSync(inputFileName); 
             if (error) {
                 return res.status(500).json({ error: error.message, stderr });
             }
@@ -17,47 +18,66 @@ const executeCode = (fileName, command, res) => {
     }
 };
 
-// to handel the restart of server and make them start again
+// To handle the restart of server and make them start again
 process.on('uncaughtException', (err) => {});
 process.on('unhandledRejection', (reason, promise) => {});
 
-
-const solve = asyncHandlers( async (req, res)=>{
-
-    const { code, language } = req.body;
+const solve = asyncHandlers(async (req, res) => {
+    const { code, language, index } = req.body;
+    // sample Input from question and index 
+    let input = questions[index].sampleInput
     let fileName;
     let command;
-
+    let inputFileName;
     switch (language) {
         case 'py':
             fileName = 'tempCode.py';
             fs.writeFileSync(fileName, code.join('\n'));
-            command = `python3 ${fileName}`;
-            executeCode(fileName, command, res);
+            if (input) {
+                inputFileName = 'input.txt';
+                fs.writeFileSync(inputFileName, input);
+                command = `python3 ${fileName} < ${inputFileName}`;
+            } else {
+                command = `python3 ${fileName}`;
+            }
+            executeCode(fileName, command, inputFileName, res);
             break;
         case 'cpp':
-            fileName = 'tempCode.cpp';
-            fs.writeFileSync(fileName, code.join('\n'));
-            const execName = 'tempCode.out';
-            command = `g++ ${fileName} -o ${execName} && ./${execName}`;
-            executeCode(fileName, command, res);
-            fs.unlinkSync(execName); 
-            break;
+                fileName = 'tempCode.cpp';
+                fs.writeFileSync(fileName, code.join('\n'));
+                const execName = 'tempCode.out';
+                if (input) {
+                    inputFileName = 'input.txt';
+                    fs.writeFileSync(inputFileName, input);
+                    command = `g++ ${fileName} -o ${execName} && ./${execName} < ${inputFileName}`;
+                } else {
+                    command = `g++ ${fileName} -o ${execName} && ./${execName}`;
+                }
+                exec(command, (error, stdout, stderr) => {
+                    if (error) {
+                        res.status(500).json({ error: error.message, stderr });
+                    } else {
+                        res.json({ output: stdout, stderr });
+                    }
+                    fs.unlinkSync(execName); // Remove the executable file after execution
+                });
+                break;
         case 'java':
             fileName = 'Main.java';
             fs.writeFileSync(fileName, code.join('\n'));
-            command = `javac ${fileName} && java Main`;
-            executeCode(fileName, command, res);
-            fs.unlinkSync('Main.class'); 
-            break;
-        case 'js':
-            fileName = 'tempCode.js';
-            fs.writeFileSync(fileName, code.join('\n'));
-            command = `node ${fileName}`;
-            executeCode(fileName, command, res);
+            if (input) {
+                inputFileName = 'input.txt';
+                fs.writeFileSync(inputFileName, input);
+                command = `javac ${fileName} && java Main < ${inputFileName}`;
+            } else {
+                command = `javac ${fileName} && java Main`;
+            }
+            executeCode(fileName, command, inputFileName, res);
+            fs.unlinkSync('Main.class');
             break;
         default:
             res.status(400).json({ message: 'Unsupported language' });
     }
-})
-export {solve}
+});
+
+export { solve };

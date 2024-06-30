@@ -77,6 +77,12 @@ const questionSchema = new mongoose.Schema({
     favourite: {
         type: Boolean,
         default: false
+    },
+    sampleInput :{
+        type: String,
+    },
+    sampleOutput:{
+        type: String,
     }
 });
 
