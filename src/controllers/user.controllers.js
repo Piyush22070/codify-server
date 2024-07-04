@@ -5,11 +5,32 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 
 
+
 //conrolleres containes the while Logic
+
+const generateAccessTokenAndRefreshToken =  async (userId) =>{
+    try{
+        // here you have to write await
+        const user = await User.findOne(userId)
+
+        const accessToken = await user.generateAccessToken()
+            
+
+        // Changing the value oof userRefersh Token to genereated Tekoen 
+        user.refreshToken = refreshToken
+        await user.save({validateBeforeSave : false})
+
+        return {accessToken,refreshToken} 
+
+    }catch(e){
+        throw new ApiError(500,'Something went wrong while Generating Acces Token and Refresh Token')
+    }
+}
+
 const registerUser = asyncHandlers(async (req,res)=>{
 
     // geting the values from user
-    const {username ,email,role,password} = req.body
+    const {username ,email,role,password,title,rank,sampleData,country} = req.body
 
     // validating the data
     // normal zindgi
@@ -51,11 +72,15 @@ const registerUser = asyncHandlers(async (req,res)=>{
         avatar : avatar.url,
         email,
         password,
+        title,
+        rank,
+        country,
+        sampleData
     })
 
     // cheching if object is created and removing the password and Refersh Token
     const createdUser = await User.findById(user._id).select(
-        "-password"
+        "-password --refreshToken"
     )
     if(!createdUser){
         throw new ApiError(500,"Something went Wrong (registring the user )!") 
@@ -67,4 +92,85 @@ const registerUser = asyncHandlers(async (req,res)=>{
     )
 })
 
-export {registerUser}
+const loginUser = asyncHandlers(  async (req,res) =>{
+
+    // algo
+    //req body = data
+    //find user 
+    // password check
+    //tokens
+    // send cookie
+
+
+    const { email,username , password} = req.body
+  
+    if(!(username || email)){
+        throw new ApiError(400,"username ,password is required")
+    }
+
+    // finding weather the user is present or not
+    const user = await User.findOne({
+        $or: [{ username: username }, { email: email }]
+    });
+
+    if(!user){
+        throw new ApiError(404,"user does not exits !")
+    }
+
+    // checking the password is correct here i am using user User
+    const ispasswordValid = await user.isPasswordCorrect(password)
+    if(!ispasswordValid){
+        throw new ApiError(401,"Password incorrect!")
+    }
+
+    // genetaring and accesing the token by passing the id
+    const {accessToken,refreshToken} = generateAccessTokenAndRefreshToken(user._id)
+
+    // sending as cookie
+    // but we have the reffernce of not updated user so we have to update
+    const loggedInUser = await User.findOne(user._id).select(" -password -refreshToken")
+
+    const options = {
+        httplOnly : true,
+        secure : true
+    }
+
+     return res
+     .status(200)
+     .cookie("accessToken",accessToken,options)
+     .cookie("refreshToken",refreshToken,options)
+     .json(
+        new ApiResponse(
+            200,{
+                user : loggedInUser ,accessToken,refreshToken
+            },
+            "User Logged In Succedfully"
+        )
+     )
+})
+
+const logOutUser = asyncHandlers(async (req,res)=>{
+    // refershToken to undefeined
+    await User.findByIdAndUpdate(
+        req.user._id,
+        {
+            $set :{
+                refreshToken : undefined
+            }
+        },{
+            new : true
+        }
+    )
+    const options = {
+        httplOnly : true,
+        secure : true
+    }
+
+    return res
+    .status(200)
+    .clearCookies("accessToken",options)
+    .clearCookies("refreshToken",options)
+    .json(new ApiResponse(200,{},"User Loged Out"))
+})
+
+export {registerUser,loginUser,logOutUser }
