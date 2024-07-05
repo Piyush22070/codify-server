@@ -47,8 +47,8 @@ export const questions = [
             Accepted: 13499686,
             Submissions: 25531603,
             favourite: false,
-            sampleInput: "123",
-            sampleOutput: "321"
+            sampleInput: "3\n123\n-998\n-1234567987543122",
+            sampleOutput: '321\n-899\n-2213457897654321'
         },
         {
             id: 3,
