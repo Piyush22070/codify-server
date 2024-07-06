@@ -79,7 +79,6 @@ const solve = asyncHandlers(async (req, res) => {
                     }
                 
                     executeCode(fileName, command, inputFileName, res,index);
-                    fs.unlinkSync('Main.class');
                     break;
         default:
             res.status(400).json({ message: 'Unsupported language' });
