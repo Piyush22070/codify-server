@@ -23,7 +23,7 @@ export const questions = [
             Accepted: 13499686,
             Submissions: 25531603,
             favourite: false,
-            sampleInput: "4\n4\n2 7 11 15\n9\n4\n1 5 3 6\n8\n5\nn-1 -2 -3 -4 -5\n-8\n2\n3 3\n6",
+            sampleInput: "4\n4\n2 7 11 15\n9\n4\n1 5 3 6\n8\n5\n-1 -2 -3 -4 -5\n-8\n2\n3 3\n6",
             sampleOutput: "0 1\n0 3\n2 4\n0 1"
         },
         {
