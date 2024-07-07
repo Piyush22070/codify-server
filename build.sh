@@ -5,18 +5,18 @@ set -e
 
 # Update package list and install curl, gnupg
 echo "Updating package lists and installing dependencies..."
-sudo apt-get update -y
-sudo apt-get install -y curl gnupg
+apt-get update -y
+apt-get install -y curl gnupg
 
 # Install Node.js (using version 16)
 echo "Installing Node.js..."
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
+apt-get install -y nodejs
 
 # Install Java JDK
 echo "Installing Java JDK..."
-sudo apt-get update -y
-sudo apt-get install -y openjdk-11-jdk
+apt-get update -y
+apt-get install -y openjdk-11-jdk
 
 # Verify installations
 echo "Verifying installations..."
@@ -44,10 +44,6 @@ cp -r /path/to/your/project/* .
 # Set environment variable for MongoDB URI
 echo "Setting environment variable for MongoDB URI..."
 export MONGODB_URI=mongodb+srv://piyush:piyush123@cluster0.gh7uisf.mongodb.net
-
-# Expose port 3000 (adjust this according to your application settings)
-echo "Exposing port 3000..."
-sudo iptables -I INPUT -p tcp --dport 3000 -j ACCEPT
 
 # Start the application
 echo "Starting the application..."
