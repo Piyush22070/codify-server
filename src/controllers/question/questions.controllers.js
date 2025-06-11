@@ -1,6 +1,6 @@
 // Import required modules
-import { Question } from "../models/question.model.js";
-import { asyncHandlers } from "../utils/asyncHandler.utils.js";
+import { Question } from "../../models/question.model.js";
+import { asyncHandlers } from "../../utils/asyncHandler.utils.js";
 import { questions as demoQuestions } from "./demoData.js"; // Assuming demoQuestions is an array of questions
 
 // Define the controller function

@@ -16,7 +16,7 @@ app.use(cookieParser())
 
 
 // questions
-import questionRouter from './routes/question.route.js'
+import questionRouter from './routes/questions.route.js'
 app.use("/",questionRouter)
 
 //solve 
@@ -27,9 +27,8 @@ app.use("/",solveRouter)
 import userRouter from './routes/user.route.js'
 app.use("/",userRouter)
 
-import problemRouter from './routes/problem.route.js'
-app.use("/question/",problemRouter)
-
+import singleQuestionRouter from './routes/singleQuestion.route.js'
+app.use("/question/",singleQuestionRouter)
 
 
 export default app

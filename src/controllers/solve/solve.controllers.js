@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { exec } from 'child_process';
-import { asyncHandlers } from '../utils/asyncHandler.utils.js';
-import { questions } from './demoData.js';
+import { asyncHandlers } from '../../utils/asyncHandler.utils.js';
+import { questions } from '../question/demoData.js';
 
 const executeCode = (fileName, command, inputFileName, res, index) => {
     const output = questions[index].sampleOutput
