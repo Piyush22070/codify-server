@@ -30,5 +30,8 @@ app.use("/",userRouter)
 import singleQuestionRouter from './routes/singleQuestion.route.js'
 app.use("/question/",singleQuestionRouter)
 
+import resultRouter from './routes/result.route.js'
+app.use('/result',resultRouter)
+
 
 export default app

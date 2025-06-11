@@ -1,0 +1,5 @@
+{
+  "memoryLimitMB": 128,
+  "timeoutSeconds": 5,
+  "allowedLanguages": ["py", "cpp", "java"]
+}
