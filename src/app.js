@@ -20,8 +20,8 @@ import questionRouter from './routes/questions.route.js'
 app.use("/",questionRouter)
 
 //solve 
-import solveRouter from './routes/solve.route.js'
-app.use("/",solveRouter)
+import submissionRouter from './routes/submission.route.js'
+app.use("/",submissionRouter)
 
 // register user Router 
 import userRouter from './routes/user.route.js'

@@ -33,7 +33,7 @@ const executeCode = (fileName, command, inputFileName, res, index) => {
 process.on('uncaughtException', (err) => {});
 process.on('unhandledRejection', (reason, promise) => {});
 
-const solve = asyncHandlers(async (req, res) => {
+const submission = asyncHandlers(async (req, res) => {
     const { code, language, index } = req.body;
     // sample Input from question and index 
     let input = questions[index].sampleInput
@@ -85,4 +85,4 @@ const solve = asyncHandlers(async (req, res) => {
     }
 });
 
-export { solve };
+export { submission };
