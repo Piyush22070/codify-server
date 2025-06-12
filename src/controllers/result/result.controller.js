@@ -1,5 +1,5 @@
 import { asyncHandlers } from '../../utils/asyncHandler.utils.js';
-import { client } from '../queue/redisClient.js';
+import { client } from '../../utils/redisClient.js';
 
 const getResult = asyncHandlers(async (req, res) => {
   const { jobId } = req.params;

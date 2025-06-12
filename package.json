@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"nodemon src/index.js\" \"node src/controllers/submission/worker.controllers.js\""
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
   },
   "author": "PIYUSH BHOYAR",
   "license": "ISC",

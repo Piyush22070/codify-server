@@ -27,11 +27,11 @@ app.use("/",submissionRouter)
 import userRouter from './routes/user.route.js'
 app.use("/",userRouter)
 
-import singleQuestionRouter from './routes/singleQuestion.route.js'
-app.use("/question/",singleQuestionRouter)
-
 import resultRouter from './routes/result.route.js'
 app.use('/result',resultRouter)
+
+import uploadQuestionsRouter from './routes/uploadQuestions.route.js'
+app.use("/",uploadQuestionsRouter)
 
 
 export default app

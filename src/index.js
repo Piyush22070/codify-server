@@ -3,7 +3,6 @@ import connectDB from './db/index.js';
 import  dotenv from "dotenv";
 dotenv.config({path : './env'})
 
-// this is initiating the connection between db
 connectDB()
 .then(()=>{
     // if db connected we can initiated the app connection
