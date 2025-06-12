@@ -18,7 +18,7 @@ This project is a scalable, production-ready Remote Code Execution (RCE) system 
 
 ## Architecture
 
-![Remote Code Execution Architecture](docs/RCE.drawio.png)
+![Remote Code Execution Architecture](docs/RCE.draw.io.png)
 
 
 ## System Components
